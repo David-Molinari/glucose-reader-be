@@ -10,6 +10,7 @@ import {ObjectID} from 'mongodb';
   */
 export interface IData extends mongoose.Document {
   _id: ObjectID;
+  result_id: Number,
   result_dt_tm: string;
   glucose_level: Number;
   glucose_level_unit: string;
@@ -21,6 +22,7 @@ export interface IData extends mongoose.Document {
  * data schema
  */
 const schema: mongoose.SchemaDefinition = {
+  result_id: { type: mongoose.SchemaTypes.String, required: true, unique: true },
   result_dt_tm: { type: mongoose.SchemaTypes.String, required: true, unique: true },
   glucose_level: { type: mongoose.SchemaTypes.Number, required: true },
   glucose_level_unit: { type: mongoose.SchemaTypes.String, required: true },

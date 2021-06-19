@@ -8,6 +8,7 @@ import {ObjectID} from 'mongodb';
 export const DataSchema = gql`
   type Data {
     _id: ID!,
+    result_id: Int!,
     result_dt_tm: String!,
     glucose_level: Int!,
     glucose_level_unit: String!,
@@ -15,6 +16,7 @@ export const DataSchema = gql`
   }
 
   input CreateDataInput {
+    result_id: Int!,
     result_dt_tm: String!,
     glucose_level: Int!,
     glucose_level_unit: String!,
@@ -23,6 +25,7 @@ export const DataSchema = gql`
 
   input UpdateDataInput {
     _id: ID!,
+    result_id: Int!,
     result_dt_tm: String!,
     glucose_level: Int!,
     glucose_level_unit: String!,
@@ -31,12 +34,12 @@ export const DataSchema = gql`
   
   extend type Query {
     data: [Data]!
-    data_(_id: ID!): Data
+    data_(_id: String!): Data
   }
 
   extend type Mutation {
     createData(input: CreateDataInput!): Data
     updateData(input: UpdateDataInput!): Data
-    deleteData(_id: ID!): Data
+    deleteData(_id: String!): Data
   }
 `

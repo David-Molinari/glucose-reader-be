@@ -106,6 +106,7 @@ export const updateData = async (context, args: IData) => {
   try {
     updatedData = await DataModel(context).findByIdAndUpdate(args._id, 
       {
+        result_id: args.result_id,
         result_dt_tm: args.result_dt_tm,
         glucose_level: args.glucose_level,
         glucose_level_unit: args.glucose_level_unit,
