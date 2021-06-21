@@ -15,12 +15,12 @@ import {ObjectID} from 'mongodb';
  */
 export const getAllData = async (connection) => { 
   let data: IData[];
-
+  
   try {
     data = await DataModel(connection).find();
     if (data != null && data.length > 0) {
       data = data.map(u => {
-        return u.transform()
+        return u
       }); 
     }
   } catch(error) {
@@ -39,18 +39,15 @@ export const getAllData = async (connection) => {
  */
 export const getData = async (connection, _id: ObjectID) => {
   let data: IData | null;
-
+  data = await DataModel(connection).findById(_id);
   try {
-    data = await DataModel(connection).findById(_id);
     if (data != null) {
-      data = data.transform();
+      return data
     }
   } catch(error) {
     console.error("> getData error: ", error);
     throw new ApolloError("Error retrieving data with id: " + _id);
   }
-
-  return data;
 }
 
 /**
@@ -61,15 +58,13 @@ export const getData = async (connection, _id: ObjectID) => {
  */
 export const createData = async (connection, args: IData) => {
   let createdData: IData;
-  
+  createdData = (await DataModel(connection).create(args));
   try {
-    createdData = (await DataModel(connection).create(args)).transform();
+    return createdData;
   } catch(error) {
     console.error("> createData error: ", error);
     throw new ApolloError("Error saving data with id: " + args._id);
   }
-
-  return createdData;
 }
 
 /**
@@ -80,18 +75,15 @@ export const createData = async (connection, args: IData) => {
  */
 export const deleteData = async (connection, _id: ObjectID) => {
   let deletedData: IData | null;
-  
+  deletedData = await DataModel(connection).findByIdAndRemove(_id);
   try {
-    deletedData = await DataModel(connection).findByIdAndRemove(_id);
     if (deletedData != null) {
-      deletedData = deletedData.transform();
+      return deletedData;
     }
   } catch(error) {
     console.error("> deleteData error: ", error);
     throw new ApolloError("Error deleting data with id: " + _id);
   }
-
-  return deletedData;
 }
 
 /**
@@ -102,24 +94,21 @@ export const deleteData = async (connection, _id: ObjectID) => {
  */
 export const updateData = async (context, args: IData) => {
   let updatedData: IData | null;
-  
+  updatedData = await DataModel(context).findByIdAndUpdate(args._id, 
+    {
+      result_id: args.result_id,
+      result_dt_tm: args.result_dt_tm,
+      glucose_level: args.glucose_level,
+      glucose_level_unit: args.glucose_level_unit,
+      source: args.source
+    }, 
+    {new: true});
   try {
-    updatedData = await DataModel(context).findByIdAndUpdate(args._id, 
-      {
-        result_id: args.result_id,
-        result_dt_tm: args.result_dt_tm,
-        glucose_level: args.glucose_level,
-        glucose_level_unit: args.glucose_level_unit,
-        source: args.source
-      }, {new: true});
-      
     if (updatedData != null) {
-      updatedData = updatedData.transform();
+      return updatedData;
     }
   } catch(error) {
     console.error("> updateData error: ", error);
     throw new ApolloError("Error updating data with id: " + args._id);
   }
-
-  return updatedData;
 }

@@ -15,7 +15,6 @@ export interface IData extends mongoose.Document {
   glucose_level: Number;
   glucose_level_unit: string;
   source: string;
-  transform: () => IData;
 }
 
 /**
@@ -32,12 +31,12 @@ const schema: mongoose.SchemaDefinition = {
 // data collection name
 const collectionName: string = "data";
 
-const dataSchema: mongoose.Schema = new mongoose.Schema(schema);
+const dataSchema: mongoose.Schema = new mongoose.Schema(schema, {collection: 'data'});
 
 /**
  * creates data model
  * @param conn database connection
- * @returns data model
+ * @returns {IData[]} data model
  */
 const DataModel = (conn: mongoose.Connection): mongoose.Model<any> =>
   conn.model(collectionName, dataSchema);

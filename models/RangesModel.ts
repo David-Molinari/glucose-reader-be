@@ -28,14 +28,14 @@ const schema: mongoose.SchemaDefinition = {
 // ranges collection name
 const collectionName: string = "ranges";
 
-const rangesSchema: mongoose.Schema = new mongoose.Schema(schema);
+const rangesSchema: mongoose.Schema = new mongoose.Schema(schema, {collection: 'ranges'});
 
 /**
  * creates ranges model
  * @param conn database connection
- * @returns ranges model
+ * @returns {IRanges[]} ranges model
  */
-const RangesModel = (conn: mongoose.Connection): mongoose.Model<any> =>
+const RangesModel = (conn: mongoose.Connection): mongoose.Model<any> => 
   conn.model(collectionName, rangesSchema);
 
 export default RangesModel;

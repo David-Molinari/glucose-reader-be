@@ -13,12 +13,11 @@ import { ApolloError } from "apollo-server";
  */
 export const getAllRanges = async (connection) => { 
   let ranges: IRanges[];
-
-  try {
-    ranges = await RangesModel(connection).find();
+  ranges = await RangesModel(connection).find();
+  try { 
     if (ranges != null && ranges.length > 0) {
       ranges = ranges.map(u => {
-        return u.transform()
+        return u
       }); 
     }
   } catch(error) {
