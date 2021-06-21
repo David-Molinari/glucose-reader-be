@@ -1,5 +1,4 @@
 import { gql } from "apollo-server";
-import {ObjectID} from 'mongodb';
 
 /**
  * @description holds glucose data schema
