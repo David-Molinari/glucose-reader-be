@@ -10,7 +10,7 @@ import {ObjectID} from 'mongodb';
   */
 export interface IData extends mongoose.Document {
   _id: ObjectID;
-  result_id: Number,
+  result_id: string,
   result_dt_tm: string;
   glucose_level: Number;
   glucose_level_unit: string;

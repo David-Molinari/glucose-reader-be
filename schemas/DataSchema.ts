@@ -7,7 +7,7 @@ import { gql } from "apollo-server";
 export const DataSchema = gql`
   type Data {
     _id: ID!,
-    result_id: Int!,
+    result_id: String!,
     result_dt_tm: String!,
     glucose_level: Int!,
     glucose_level_unit: String!,
@@ -15,7 +15,7 @@ export const DataSchema = gql`
   }
 
   input CreateDataInput {
-    result_id: Int!,
+    result_id: String!,
     result_dt_tm: String!,
     glucose_level: Int!,
     glucose_level_unit: String!,
@@ -24,7 +24,7 @@ export const DataSchema = gql`
 
   input UpdateDataInput {
     _id: ID!,
-    result_id: Int!,
+    result_id: String!,
     result_dt_tm: String!,
     glucose_level: Int!,
     glucose_level_unit: String!,
