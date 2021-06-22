@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // creating apollo server
-import apolloServer from "./graphql.js";
+import apolloServer from "./graphql";
 
 const port: string = process.env.PORT as string;
 
