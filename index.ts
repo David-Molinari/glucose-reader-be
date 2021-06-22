@@ -8,7 +8,7 @@ require('dotenv').config();
 // creating apollo server
 const apolloServer = require("./graphql");
 
-const port: string = process.env.PORT as string;
+const port = process.env.PORT;
 
 // start listening
 apolloServer.listen(port).then(({ url }) => {
