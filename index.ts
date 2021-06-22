@@ -3,8 +3,7 @@
  */
 
 // configuring environment variables
-import dotenv from "dotenv"
-dotenv.config();
+require('dotenv').config();
 
 // creating apollo server
 import apolloServer from "./graphql";
