@@ -1,4 +1,4 @@
-import { createData, deleteData, updateData } from "../controllers/DataController"
+import { createData, deleteData, updateData } from "../controllers/DataController.js"
 
 /**
  * @description holds data mutations

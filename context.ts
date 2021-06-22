@@ -1,4 +1,4 @@
-import { getConnection } from "./database/Provider";
+import { getConnection } from "./database/Provider.js";
 
 /**
  * @description holds context for Apollo Server

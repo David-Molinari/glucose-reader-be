@@ -1,6 +1,6 @@
-import { RangesSchema } from "./RangesSchema";
-import { DataSchema } from "./DataSchema";
-import { DefaultSchema } from "./DefaultSchema";
+import { RangesSchema } from "./RangesSchema.js";
+import { DataSchema } from "./DataSchema.js";
+import { DefaultSchema } from "./DefaultSchema.js";
 
 /**
  * @description holds all schemas

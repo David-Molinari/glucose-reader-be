@@ -1,4 +1,4 @@
-import { RangesQuery } from "../queries/RangesQueries";
+import { RangesQuery } from "../queries/RangesQueries.js";
 import { IResolvers } from "apollo-server";
 
 /**
