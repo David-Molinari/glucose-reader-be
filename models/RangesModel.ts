@@ -35,7 +35,7 @@ const rangesSchema: mongoose.Schema = new mongoose.Schema(schema, {collection: '
  * @param conn database connection
  * @returns {IRanges[]} ranges model
  */
-const RangesModel = (conn: mongoose.Connection): mongoose.Model<any> => 
+const RangesModel = (conn: mongoose.Connection): mongoose.Model<any> =>
   conn.model(collectionName, rangesSchema);
 
 export default RangesModel;

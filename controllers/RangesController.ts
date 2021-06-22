@@ -1,5 +1,6 @@
-import RangesModel, { IRanges } from "../models/RangesModel"
-import { ApolloError } from "apollo-server";
+const RangesModel = require("../models/RangesModel.ts");
+import { IRanges } from "../models/RangesModel";
+const { ApolloError } = require("apollo-server");
 
 /**
  * 

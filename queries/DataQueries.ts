@@ -1,4 +1,4 @@
-import { getAllData, getData } from "../controllers/DataController";
+const { getAllData, getData } = require("../controllers/DataController.ts");
 
 /**
  * @description holds book queries
