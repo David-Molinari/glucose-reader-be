@@ -1,4 +1,4 @@
-const { createData, deleteData, updateData } = require("../controllers/DataController.ts");
+import { createData, deleteData, updateData } from "../controllers/DataController"
 
 /**
  * @description holds data mutations

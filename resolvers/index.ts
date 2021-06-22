@@ -1,5 +1,5 @@
-const RangesResolver = require('./RangesResolver.ts');
-const DataResolver = require('./DataResolver.ts');
+import { RangesResolver } from './RangesResolver';
+import { DataResolver } from './DataResolver';
 
 /**
  * @description holds all resolvers

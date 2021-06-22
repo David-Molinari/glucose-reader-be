@@ -1,5 +1,5 @@
-const DataQuery = require("../queries/DataQueries.ts");
-const DataMutation = require("../mutations/DataMutation.ts");
+import { DataQuery } from "../queries/DataQueries";
+import { DataMutation } from "../mutations/DataMutation";
 import { IResolvers } from "apollo-server";
 
 /**

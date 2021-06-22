@@ -3,12 +3,13 @@
  */
 
 // configuring environment variables
-require('dotenv').config();
+import dotenv from "dotenv"
+dotenv.config();
 
 // creating apollo server
-const apolloServer = require("./graphql.ts");
+import apolloServer from "./graphql";
 
-const port = process.env.PORT;
+const port: string = process.env.PORT as string;
 
 // start listening
 apolloServer.listen(port).then(({ url }) => {

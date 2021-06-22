@@ -1,6 +1,5 @@
-const DataModel = require("../models/DataModel.ts");
-import { IData } from "../models/DataModel";
-const { ApolloError } = require("apollo-server");
+import DataModel, { IData } from "../models/DataModel"
+import { ApolloError } from "apollo-server";
 import {ObjectID} from 'mongodb';
 
 

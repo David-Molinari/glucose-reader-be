@@ -1,6 +1,5 @@
-const RangesModel = require("../models/RangesModel.ts");
-import { IRanges } from "../models/RangesModel";
-const { ApolloError } = require("apollo-server");
+import RangesModel, { IRanges } from "../models/RangesModel"
+import { ApolloError } from "apollo-server";
 
 /**
  * 
@@ -14,16 +13,17 @@ const { ApolloError } = require("apollo-server");
  */
 export const getAllRanges = async (connection) => { 
   let ranges: IRanges[];
-  ranges = await RangesModel(connection).find();
-  try { 
+
+  try {
+    ranges = await RangesModel(connection).find();
     if (ranges != null && ranges.length > 0) {
       ranges = ranges.map(u => {
         return u
       }); 
     }
   } catch(error) {
-    console.error("> getAllRanges error: ", error);
-    throw new ApolloError("Error retrieving all ranges");
+    console.error("> getAllBooks error: ", error);
+    throw new ApolloError("Error retrieving all books");
   }
 
   return ranges;

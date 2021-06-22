@@ -1,4 +1,4 @@
-const { getAllRanges } = require("../controllers/RangesController.ts");
+import { getAllRanges } from "../controllers/RangesController";
 
 /**
  * @description holds ranges query

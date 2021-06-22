@@ -1,7 +1,7 @@
-const ApolloServer = require("apollo-server");
-const resolvers = require("./resolvers");
-const schema = require("./schemas");
-const context = require("./context.ts");
+import { ApolloServer } from "apollo-server";
+import { resolvers } from "./resolvers";
+import { schema } from "./schemas";
+import { context } from "./context";
 
 /**
  * @description holds and creates apollo server

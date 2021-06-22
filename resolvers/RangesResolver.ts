@@ -1,4 +1,4 @@
-const RangesQuery = require("../queries/RangesQueries.ts");
+import { RangesQuery } from "../queries/RangesQueries";
 import { IResolvers } from "apollo-server";
 
 /**

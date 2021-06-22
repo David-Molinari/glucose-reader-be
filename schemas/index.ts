@@ -1,6 +1,6 @@
-const RangesSchema = require("./RangesSchema.ts");
-const DataSchema = require("./DataSchema.ts");
-const DefaultSchema = require("./DefaultSchema.ts");
+import { RangesSchema } from "./RangesSchema";
+import { DataSchema } from "./DataSchema";
+import { DefaultSchema } from "./DefaultSchema";
 
 /**
  * @description holds all schemas

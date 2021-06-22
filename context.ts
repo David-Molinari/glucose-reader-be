@@ -1,4 +1,4 @@
-const getConnection = require("./database/Provider.ts");
+import { getConnection } from "./database/Provider";
 
 /**
  * @description holds context for Apollo Server
