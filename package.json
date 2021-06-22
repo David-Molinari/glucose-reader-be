@@ -21,7 +21,7 @@
   },
   "scripts": {
     "dev": "nodemon --exec ts-node ./index.ts",
-    "start": "node ./index.ts"
+    "start": "node --loader ts-node/esm ./index.ts"
   },
   "type": "module"
 }
