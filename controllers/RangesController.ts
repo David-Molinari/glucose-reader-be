@@ -1,4 +1,4 @@
-import RangesModel, { IRanges } from "../models/RangesModel.js"
+import RangesModel, { IRanges } from "../models/RangesModel"
 import { ApolloError } from "apollo-server";
 
 /**

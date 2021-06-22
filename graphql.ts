@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server";
-import { resolvers } from "./resolvers/index.js";
-import { schema } from "./schemas/index.js";
-import { context } from "./context.js";
+import { resolvers } from "./resolvers";
+import { schema } from "./schemas";
+import { context } from "./context";
 
 /**
  * @description holds and creates apollo server

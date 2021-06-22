@@ -1,4 +1,4 @@
-import { getAllData, getData } from "../controllers/DataController.js";
+import { getAllData, getData } from "../controllers/DataController";
 
 /**
  * @description holds book queries

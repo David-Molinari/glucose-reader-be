@@ -1,5 +1,5 @@
-import { DataQuery } from "../queries/DataQueries.js";
-import { DataMutation } from "../mutations/DataMutation.js";
+import { DataQuery } from "../queries/DataQueries";
+import { DataMutation } from "../mutations/DataMutation";
 import { IResolvers } from "apollo-server";
 
 /**

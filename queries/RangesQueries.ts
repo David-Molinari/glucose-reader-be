@@ -1,4 +1,4 @@
-import { getAllRanges } from "../controllers/RangesController.js";
+import { getAllRanges } from "../controllers/RangesController";
 
 /**
  * @description holds ranges query

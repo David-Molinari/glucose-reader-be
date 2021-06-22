@@ -1,4 +1,4 @@
-import DataModel, { IData } from "../models/DataModel.js"
+import DataModel, { IData } from "../models/DataModel"
 import { ApolloError } from "apollo-server";
 import {ObjectID} from 'mongodb';
 

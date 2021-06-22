@@ -1,5 +1,5 @@
-import { RangesResolver } from './RangesResolver.js';
-import { DataResolver } from './DataResolver.js';
+import { RangesResolver } from './RangesResolver';
+import { DataResolver } from './DataResolver';
 
 /**
  * @description holds all resolvers
