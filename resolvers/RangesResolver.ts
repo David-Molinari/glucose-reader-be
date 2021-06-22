@@ -1,10 +1,10 @@
 import { RangesQuery } from "../queries/RangesQueries";
-import { IResolvers } from "apollo-server";
+const { IResolvers } = require("apollo-server");
 
 /**
  * @description holds ranges resolver
  */
 
-export const RangesResolver: IResolvers = {
+export const RangesResolver: typeof IResolvers = {
   Query: RangesQuery
 }
