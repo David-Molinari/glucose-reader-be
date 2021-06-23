@@ -17,8 +17,6 @@ let conn: mongoose.Connection | null = null;
  * returns mongodb connection
  */
 export const getConnection = async (): Promise<mongoose.Connection> => {
-
-  console.log(conn, 'connection log', uri, 'connection uri')
   
   if (conn == null) {
     conn = await mongoose.createConnection(uri, {

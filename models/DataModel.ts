@@ -51,7 +51,9 @@ const collectionName: string = "data";
  * creates data model
  * @param conn database connection
  */
-const DataModel = (conn: mongoose.Connection): mongoose.Model<any> =>
-  conn.model(collectionName, schema);
+const DataModel = (conn: mongoose.Connection): mongoose.Model<any> => {
+  console.log(collectionName, schema)
+  return conn.model(collectionName, schema);
+}
 
 export default DataModel;
