@@ -1,4 +1,4 @@
-import DataModel, { IData } from "../models/DataModel"
+import DataModel, { Data } from "../models/DataModel"
 import { ApolloError } from "apollo-server";
 import {ObjectID} from 'mongodb';
 
@@ -11,10 +11,10 @@ import {ObjectID} from 'mongodb';
 /**
  * gets all data
  * @param connection database connection
- * @returns {IData[]} data list
+ * @returns {Data[]} data list
  */
 export const getAllData = async (connection) => { 
-  let data: IData[];
+  let data: Data[];
   
   try {
     data = await DataModel(connection).find();
@@ -35,10 +35,10 @@ export const getAllData = async (connection) => {
  * gets data by id
  * @param connection database connection
  * @param _id data id
- * @returns {IData | null} data or null
+ * @returns {Data | null} data or null
  */
 export const getData = async (connection, _id: ObjectID) => {
-  let data: IData | null;
+  let data: Data | null;
   data = await DataModel(connection).findById(_id);
   try {
     if (data != null) {
@@ -54,10 +54,10 @@ export const getData = async (connection, _id: ObjectID) => {
  * creates data
  * @param connection database connection
  * @param args data
- * @returns {IData} created data
+ * @returns {Data} created data
  */
-export const createData = async (connection, args: IData) => {
-  let createdData: IData;
+export const createData = async (connection, args) => {
+  let createdData: Data;
   createdData = (await DataModel(connection).create(args));
   try {
     return createdData;
@@ -71,10 +71,10 @@ export const createData = async (connection, args: IData) => {
  * deletes data
  * @param connection database connection
  * @param _id data id
- * @returns {IData | null} deleted data or null
+ * @returns {Data | null} deleted data or null
  */
 export const deleteData = async (connection, _id: ObjectID) => {
-  let deletedData: IData | null;
+  let deletedData: Data | null;
   deletedData = await DataModel(connection).findByIdAndRemove(_id);
   try {
     if (deletedData != null) {
@@ -90,10 +90,10 @@ export const deleteData = async (connection, _id: ObjectID) => {
  * updates data
  * @param connection database connection
  * @param args data
- * @returns {IData | null} updated data or null
+ * @returns {Data | null} updated data or null
  */
-export const updateData = async (context, args: IData) => {
-  let updatedData: IData | null;
+export const updateData = async (context, args) => {
+  let updatedData: Data | null;
   updatedData = await DataModel(context).findByIdAndUpdate(args._id, 
     {
       result_id: args.result_id,

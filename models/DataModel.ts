@@ -8,37 +8,50 @@ import { ObjectID } from 'mongodb';
  /**
   * Data interface
   */
-export interface IData extends mongoose.Document {
-  _id: ObjectID;
-  result_id: string,
-  result_dt_tm: string;
-  glucose_level: Number;
-  glucose_level_unit: string;
-  source: string;
+  export interface Data {
+    // _id: ObjectID
+    result_id: String,
+    result_dt_tm: String,
+    glucose_level: Number,
+    glucose_level_unit: String,
+    source: String
+}
+
+interface DataDocument extends Data, mongoose.Document {}
+
+//create an intermediary type to use in schema definition
+interface DataSchemaProps {
+  result_id: typeof String,
+  result_dt_tm: typeof String,
+  glucose_level: typeof Number,
+  glucose_level_unit: typeof String,
+  source: typeof String
 }
 
 /**
  * data schema
  */
-const schema: mongoose.SchemaDefinition = {
-  result_id: { type: mongoose.SchemaTypes.String, required: true, unique: true },
-  result_dt_tm: { type: mongoose.SchemaTypes.String, required: true, unique: true },
-  glucose_level: { type: mongoose.SchemaTypes.Number, required: true },
-  glucose_level_unit: { type: mongoose.SchemaTypes.String, required: true },
-  source: { type: mongoose.SchemaTypes.String, required: true }
+
+ type DataSchemaDefinition = mongoose.SchemaDefinition<DataSchemaProps>;
+
+ const schemaDefinition: DataSchemaDefinition = {
+  result_id: String,
+  result_dt_tm: String,
+  glucose_level: Number,
+  glucose_level_unit: String,
+  source: String
 };
+
+const schema = new mongoose.Schema<DataDocument>(schemaDefinition);
 
 // data collection name
 const collectionName: string = "data";
 
-const dataSchema: mongoose.Schema = new mongoose.Schema(schema, {collection: 'data'});
-
 /**
  * creates data model
  * @param conn database connection
- * @returns {IData[]} data model
  */
 const DataModel = (conn: mongoose.Connection): mongoose.Model<any> =>
-  conn.model(collectionName, dataSchema);
+  conn.model(collectionName, schema);
 
 export default DataModel;
