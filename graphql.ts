@@ -2,6 +2,8 @@ import { ApolloServer } from "apollo-server";
 import { resolvers } from "./resolvers/index";
 import { schema } from "./schemas/index";
 import { context } from "./context";
+import { AuthenticationError } from 'apollo-server-errors';
+
 
 /**
  * @description holds and creates apollo server
@@ -10,6 +12,19 @@ import { context } from "./context";
 const apolloServer = new ApolloServer({
   typeDefs: schema,
   resolvers,
+  plugins: [
+    {
+      requestDidStart() {
+        return {
+          didEncounterErrors({ response, errors }) {
+            if (errors.find(err => err instanceof AuthenticationError)) {
+              response.http.status = 401;
+            }
+          }
+        }
+      },
+    },
+  ],
   context: context,
   playground: {
     endpoint: "/graphql"
