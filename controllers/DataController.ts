@@ -15,6 +15,8 @@ import {ObjectID} from 'mongodb';
  */
 export const getAllData = async (connection) => { 
   let data: Data[];
+
+  console.log(connection)
   
   try {
     data = await DataModel(connection).find();

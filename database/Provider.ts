@@ -28,6 +28,5 @@ export const getConnection = async (): Promise<mongoose.Connection> => {
       useFindAndModify: false
     });
   }
-  console.log(conn, '2')
   return conn;
 };
