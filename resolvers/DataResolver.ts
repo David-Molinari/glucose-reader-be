@@ -1,12 +1,12 @@
 import { DataQuery } from "../queries/DataQueries";
 import { DataMutation } from "../mutations/DataMutation";
-const { IResolvers } = require("apollo-server");
+import { IResolvers } from "apollo-server";
 
 /**
  * @description holds data resolver
  */
 
-export const DataResolver: typeof IResolvers = {
+export const DataResolver: IResolvers = {
   Query: DataQuery,
   Mutation: DataMutation
 }

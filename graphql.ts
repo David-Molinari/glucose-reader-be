@@ -1,6 +1,6 @@
 import { ApolloServer } from "apollo-server";
-import { resolvers } from "./resolvers";
-import { schema } from "./schemas";
+import { resolvers } from "./resolvers/index";
+import { schema } from "./schemas/index";
 import { context } from "./context";
 
 /**

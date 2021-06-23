@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {ObjectID} from 'mongodb';
+import { ObjectID } from 'mongodb';
 
 /**
  * @description holds glucose ranges model
