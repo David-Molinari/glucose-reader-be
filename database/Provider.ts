@@ -14,7 +14,7 @@ let conn: mongoose.Connection | null = null;
 
 /**
  * creates database connection
- * @returns mongodb connection
+ * returns mongodb connection
  */
 export const getConnection = async (): Promise<mongoose.Connection> => {
 
