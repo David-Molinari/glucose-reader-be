@@ -21,8 +21,6 @@
   },
   "scripts": {
     "dev": "nodemon -x ts-node ./index.ts",
-    "start": "node build/index.ts",
-    "build": "tsc",
-    "postinstall": "npm run build"
+    "start": "nodemon -x ts-node ./index.ts"
   }
 }
