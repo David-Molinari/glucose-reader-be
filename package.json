@@ -14,7 +14,6 @@
     "dotenv": "^8.2.0",
     "graphql": "^14.3.0",
     "mongoose": "^5.12.14",
-    "rimraf": "^3.0.2",
     "ts-node": "^10.0.0",
     "typescript": "^3.4.5"
   },
@@ -23,7 +22,6 @@
   },
   "scripts": {
     "dev": "nodemon --exec ts-node ./index.ts",
-    "build": "rimraf ./build && tsc",
-    "start": "npm run build && node build/index.js"
+    "start": "ts-node ./index.ts"
   }
 }
