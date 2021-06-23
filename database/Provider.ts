@@ -17,6 +17,7 @@ let conn: mongoose.Connection | null = null;
  * @returns mongodb connection
  */
 export const getConnection = async (): Promise<mongoose.Connection> => {
+  
   if (conn == null) {
     conn = await mongoose.createConnection(uri, {
       bufferCommands: false,
@@ -27,5 +28,6 @@ export const getConnection = async (): Promise<mongoose.Connection> => {
       useFindAndModify: false
     });
   }
+  console.log(conn, '2')
   return conn;
 };

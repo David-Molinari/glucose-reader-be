@@ -6,6 +6,5 @@ import { getConnection } from "./database/Provider";
 
 export const context = async () => {
   const dbConn = await getConnection();
-  console.log(dbConn)
   return { dbConn };
 }
