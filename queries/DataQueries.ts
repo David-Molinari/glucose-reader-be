@@ -7,6 +7,7 @@ import { getAllData, getData } from "../controllers/DataController";
 export const DataQuery = {
   data: {
     resolve: async (parent, args, context, info) => {
+      console.log(context)
       return await getAllData(context.dbConn)
     },
   },
