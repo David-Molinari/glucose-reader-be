@@ -3,7 +3,7 @@
  */
 
 // configuring environment variables
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 dotenv.config();
 
 // creating apollo server

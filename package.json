@@ -6,13 +6,14 @@
   "license": "ISC",
   "dependencies": {
     "@types/dotenv": "^8.2.0",
+    "@types/graphql": "^14.5.0",
     "@types/mongodb": "^3.6.18",
     "@types/mongoose": "^5.5.34",
     "apollo-server": "^2.5.0",
     "asoiaf-api": "^1.0.1",
     "dotenv": "^8.2.0",
     "graphql": "^14.3.0",
-    "mongoose": "^5.8.2",
+    "mongoose": "^5.12.14",
     "ts-node": "^10.0.0",
     "typescript": "^3.4.5"
   },
