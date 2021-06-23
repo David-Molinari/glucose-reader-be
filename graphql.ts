@@ -18,7 +18,7 @@ const apolloServer = new ApolloServer({
         return {
           didEncounterErrors({ response, errors }) {
             if (errors.find(err => err instanceof AuthenticationError)) {
-              response.http.status = 401;
+              console.log('401 ERROR')
             }
           }
         }
