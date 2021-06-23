@@ -1,5 +1,5 @@
 import DataModel, { IData } from "../models/DataModel"
-const { ApolloError } = require("apollo-server");
+import { ApolloError } from "apollo-server";
 import {ObjectID} from 'mongodb';
 
 

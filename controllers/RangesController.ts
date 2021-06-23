@@ -1,5 +1,5 @@
 import RangesModel, { IRanges } from "../models/RangesModel"
-const { ApolloError } = require("apollo-server");
+import { ApolloError } from "apollo-server";
 
 /**
  * 
