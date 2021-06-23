@@ -20,7 +20,7 @@
     "nodemon": "^1.19.0"
   },
   "scripts": {
-    "dev": "nodemon -x ts-node ./index.ts",
-    "start": "nodemon -x ts-node ./index.ts"
+    "dev": "nodemon --exec ts-node ./index.ts",
+    "start": "node --loader ts-node/esm ./index.ts"
   }
 }
