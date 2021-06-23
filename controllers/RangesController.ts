@@ -1,4 +1,4 @@
-import RangesModel, { IRanges } from "../models/RangesModel"
+import RangesModel, { Ranges } from "../models/RangesModel"
 import { ApolloError } from "apollo-server";
 
 /**
@@ -12,7 +12,7 @@ import { ApolloError } from "apollo-server";
  * @returns {IRanges[]} ranges list
  */
 export const getAllRanges = async (connection) => { 
-  let ranges: IRanges[];
+  let ranges: Ranges[];
 
   try {
     ranges = await RangesModel(connection).find();

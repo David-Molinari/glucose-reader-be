@@ -8,34 +8,44 @@ import { ObjectID } from 'mongodb';
  /**
   * Ranges interface
   */
-export interface IRanges extends mongoose.Document {
-  _id: ObjectID;
-  low_bound: Number;
-  high_bound: Number;
-  color: string;
-  transform: () => IRanges;
+export interface Ranges {
+  // _id: ObjectID;
+  low_bound: Number,
+  high_bound: Number,
+  color: String
+}
+
+interface RangesDocument extends Ranges, mongoose.Document {}
+
+//create an intermediary type to use in schema definition
+interface RangesSchemaProps {
+  low_bound: typeof Number,
+  high_bound: typeof Number,
+  color: typeof String
 }
 
 /**
  * ranges schema
  */
-const schema: mongoose.SchemaDefinition = {
-  low_bound: { type: mongoose.SchemaTypes.Number, required: true, unique: true },
-  high_bound: { type: mongoose.SchemaTypes.Number, required: true, unique: true },
-  color: { type: mongoose.SchemaTypes.String, required: true }
+
+ type RangesSchemaDefinition = mongoose.SchemaDefinition<RangesSchemaProps>;
+
+ const schemaDefinition: RangesSchemaDefinition = {
+  low_bound: Number,
+  high_bound: Number,
+  color: String
 };
+
+const schema = new mongoose.Schema<RangesDocument>(schemaDefinition);
 
 // ranges collection name
 const collectionName: string = "ranges";
 
-const rangesSchema: mongoose.Schema = new mongoose.Schema(schema, {collection: 'ranges'});
-
 /**
  * creates ranges model
  * @param conn database connection
- * @returns {IRanges[]} ranges model
  */
 const RangesModel = (conn: mongoose.Connection): mongoose.Model<any> =>
-  conn.model(collectionName, rangesSchema);
+  conn.model(collectionName, schema);
 
 export default RangesModel;
