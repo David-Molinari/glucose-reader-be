@@ -22,6 +22,6 @@
   },
   "scripts": {
     "dev": "nodemon --exec ts-node ./index.ts",
-    "start": "node --loader ts-node/esm ./index.ts"
+    "start": "npm run build && node build/index.js"
   }
 }
