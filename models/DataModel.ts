@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { ObjectID } from 'mongodb';
 
 /**
  * @description holds glucose data model
@@ -9,7 +8,6 @@ import { ObjectID } from 'mongodb';
   * Data interface
   */
   export interface Data {
-    // _id: ObjectID
     result_id: String,
     result_dt_tm: String,
     glucose_level: Number,
@@ -42,7 +40,7 @@ interface DataSchemaProps {
   source: String
 };
 
-const schema = new mongoose.Schema<DataDocument>(schemaDefinition);
+const schema = new mongoose.Schema<DataDocument>(schemaDefinition, {collection: "data"});
 
 // data collection name
 const collectionName: string = "data";
@@ -51,9 +49,7 @@ const collectionName: string = "data";
  * creates data model
  * @param conn database connection
  */
-const DataModel = (conn: mongoose.Connection): mongoose.Model<any> => {
-  console.log(collectionName, schema)
-  return conn.model(collectionName, schema);
-}
+const DataModel = (conn: mongoose.Connection): mongoose.Model<any> =>
+  conn.model(collectionName, schema);
 
 export default DataModel;

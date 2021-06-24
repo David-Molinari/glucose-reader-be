@@ -9,7 +9,7 @@ import { ApolloError } from "apollo-server";
 /**
  * gets all ranges
  * @param connection database connection
- * @returns {IRanges[]} ranges list
+ * @returns {Ranges[]} ranges list
  */
 export const getAllRanges = async (connection) => { 
   let ranges: Ranges[];

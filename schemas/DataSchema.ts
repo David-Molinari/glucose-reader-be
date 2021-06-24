@@ -32,7 +32,7 @@ export const DataSchema = gql`
   }
   
   extend type Query {
-    data: [Data]!
+    data: [Data!]!
     data_(_id: String!): Data
   }
 

@@ -27,7 +27,6 @@
     "postinstall": "tsc"
   },
   "engines": {
-    "node": "12.14.0",
-    "yarn": "1.x"
+    "node": "12.14.0"
   }
 }
