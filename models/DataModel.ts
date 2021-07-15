@@ -8,7 +8,7 @@ import mongoose from "mongoose";
   * Data interface
   */
   export interface Data {
-    _id: String,
+    _id: mongoose.Schema.Types.ObjectId,
     index: Number,
     result_id: String,
     result_dt_tm: String,
@@ -33,12 +33,12 @@ import mongoose from "mongoose";
   }
 
 interface DataDocument extends Data, mongoose.Document {
-  _id: String;
+  _id: mongoose.Schema.Types.ObjectId;
 }
 
 //create an intermediary type to use in schema definition
 interface DataSchemaProps {
-  _id: typeof String,
+  _id: typeof mongoose.Schema.Types.ObjectId,
   index: typeof Number,
   result_id: typeof String,
   result_dt_tm: typeof String,
@@ -54,8 +54,8 @@ interface DataSchemaProps {
  type DataSchemaDefinition = mongoose.SchemaDefinition<DataSchemaProps>;
 
  const schemaDefinition: DataSchemaDefinition = {
-  _id: typeof String,
-  index: typeof Number,
+  _id: mongoose.Schema.Types.ObjectId,
+  index: Number,
   result_id: String,
   result_dt_tm: String,
   glucose_level: Number,

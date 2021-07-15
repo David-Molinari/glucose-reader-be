@@ -26,8 +26,8 @@ export const DataSchema = gql`
   }
 
   type Response {
-    edges: [Edge!]!
     pageInfo: PageInfo
+    edges: [Edge]
   }
 
   input CreateDataInput {
