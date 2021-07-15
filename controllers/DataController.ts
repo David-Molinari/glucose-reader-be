@@ -1,7 +1,6 @@
-import DataModel, { Data } from "../models/DataModel"
+import DataModel, { Data, DataResponse } from "../models/DataModel"
 import { ApolloError } from "apollo-server";
 import {ObjectID} from 'mongodb';
-
 
 /**
  * 
@@ -11,24 +10,36 @@ import {ObjectID} from 'mongodb';
 /**
  * gets all data
  * @param connection database connection
- * @returns {Data[]} data list
+ * @returns {DataResponse} data list
  */
-export const getAllData = async (connection) => { 
+export const getAllData = async (connection, args) => { 
   let data: Data[];
   
   try {
     data = await DataModel(connection).find();
     if (data != null && data.length > 0) {
-      data = data.map(u => {
-        return u
-      }); 
+      const first = args.first || 5;
+      const after = args.after || 0;
+      const index = data.findIndex((item) => item._id === after);
+      const offset = index + 1;
+
+      const dataset = data.slice(offset, offset + first);
+      const lastOfData = dataset[dataset.length - 1];
+      return {
+        pageInfo: {
+          endCursor: lastOfData._id,
+          hasNextPage: offset + first < data.length,
+        },
+        edges: dataset.map((datapoint) => ({
+          cursor: datapoint._id,
+          node: datapoint,
+        })),
+      };
     }
   } catch(error) {
     console.error("> getAllData error: ", error);
     throw new ApolloError("Error retrieving all data");
   }
-
-  return data;
 }
 
 /**

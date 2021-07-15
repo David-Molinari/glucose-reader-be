@@ -7,6 +7,7 @@ import { gql } from "apollo-server";
 export const DataSchema = gql`
   type Data {
     _id: ID!,
+    index: Int!,
     result_id: String!,
     result_dt_tm: String!,
     glucose_level: Int!,
@@ -14,7 +15,23 @@ export const DataSchema = gql`
     source: String!
   }
 
+  type Edge {
+    cursor: String
+    node: Data
+  }
+
+  type PageInfo {
+    endCursor: String
+    hasNextPage: Boolean
+  }
+
+  type Response {
+    edges: [Edge!]!
+    pageInfo: PageInfo
+  }
+
   input CreateDataInput {
+    index: Int!,
     result_id: String!,
     result_dt_tm: String!,
     glucose_level: Int!,
@@ -24,6 +41,7 @@ export const DataSchema = gql`
 
   input UpdateDataInput {
     _id: ID!,
+    index: Int!,
     result_id: String!,
     result_dt_tm: String!,
     glucose_level: Int!,
@@ -32,7 +50,7 @@ export const DataSchema = gql`
   }
   
   extend type Query {
-    data: [Data!]!
+    data(first: Int!, after: String): Response
     data_(_id: String!): Data
   }
 

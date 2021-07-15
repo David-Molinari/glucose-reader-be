@@ -8,17 +8,38 @@ import mongoose from "mongoose";
   * Data interface
   */
   export interface Data {
+    _id: String,
+    index: Number,
     result_id: String,
     result_dt_tm: String,
     glucose_level: Number,
     glucose_level_unit: String,
     source: String
-}
+  }
 
-interface DataDocument extends Data, mongoose.Document {}
+  interface Edge {
+    cursor: String
+    node: Data
+  }
+
+  interface PageInfo {
+    endCursor: String
+    hasNextPage: Boolean
+  }
+
+  export interface DataResponse {
+    edges: [Edge]
+    pageInfo: PageInfo
+  }
+
+interface DataDocument extends Data, mongoose.Document {
+  _id: String;
+}
 
 //create an intermediary type to use in schema definition
 interface DataSchemaProps {
+  _id: typeof String,
+  index: typeof Number,
   result_id: typeof String,
   result_dt_tm: typeof String,
   glucose_level: typeof Number,
@@ -33,6 +54,8 @@ interface DataSchemaProps {
  type DataSchemaDefinition = mongoose.SchemaDefinition<DataSchemaProps>;
 
  const schemaDefinition: DataSchemaDefinition = {
+  _id: typeof String,
+  index: typeof Number,
   result_id: String,
   result_dt_tm: String,
   glucose_level: Number,
